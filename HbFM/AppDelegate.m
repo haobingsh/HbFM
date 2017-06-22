@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MainModuleAPI.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UITabBarController *rootVC = [MainModuleAPI rootTabBarCcontroller];
+//    [MainModuleAPI addChildVC:[HomeModuleAPI shareInstance].homeVC normalImageName:@"tabbar_find_n" selectedImageName:@"tabbar_find_h" isRequiredNavController:YES];
+//    [MainModuleAPI addChildVC:[SubscriptAPI shareInstance].subscriptVC normalImageName:@"tabbar_sound_n" selectedImageName:@"tabbar_sound_h" isRequiredNavController:YES];
+//    [MainModuleAPI addChildVC:[[DownLoadListernAPI shareInstance] getDownLoadListernVC] normalImageName:@"tabbar_download_n" selectedImageName:@"tabbar_download_h" isRequiredNavController:YES];
+//    [MainModuleAPI addChildVC:[XMGMineVC new] normalImageName:@"tabbar_me_n" selectedImageName:@"tabbar_me_h" isRequiredNavController:YES];
+    
+    [MainModuleAPI setTabbarMiddleBtnClick:^(BOOL isPlaying) {
+        
+//        UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:0 isCache:YES];
+//        [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+        
+    }];
+    
+    [MainModuleAPI setNavBarGlobalBackGroundImage:[UIImage imageNamed:@"navigationbar_bg_64"]];
+    [MainModuleAPI setNavBarGlobalTextColor:[UIColor redColor] andFontSize:18];
+    
+    self.window.rootViewController = rootVC;
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 
