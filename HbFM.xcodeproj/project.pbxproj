@@ -476,7 +476,6 @@
 				TargetAttributes = {
 					A412D31D1EFB52EF00F7B8FD = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 8NE28RVE34;
 						ProvisioningStyle = Automatic;
 					};
 					A412D3361EFB52EF00F7B8FD = {
@@ -777,7 +776,7 @@
 			baseConfigurationReference = 20F006F694A83A50D32E4D03 /* Pods-HbFM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8NE28RVE34;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HbFM/PrefixHeader.pch";
 				INFOPLIST_FILE = HbFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -792,7 +791,7 @@
 			baseConfigurationReference = C9472ADB904DF73B0058C2B0 /* Pods-HbFM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8NE28RVE34;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HbFM/PrefixHeader.pch";
 				INFOPLIST_FILE = HbFM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
