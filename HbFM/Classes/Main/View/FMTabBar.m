@@ -77,11 +77,12 @@
     self.barStyle = UIBarStyleBlack;
     
     // 设置tabbar 背景图片
-    NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
-    NSString *bundleName = [currentBundle.infoDictionary[@"CFBundleName"] stringByAppendingString:@".bundle"];
-    NSString *path = [currentBundle pathForResource:@"tabbar_bg@2x.png" ofType:nil inDirectory:bundleName];
-    
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
+//    NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+//    NSString *bundleName = [currentBundle.infoDictionary[@"CFBundleName"] stringByAppendingString:@".bundle"];
+//    NSString *path = [currentBundle pathForResource:@"tabbar_bg@2x.png" ofType:nil inDirectory:bundleName];
+//    
+//    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    UIImage *image = [UIImage imageNamed:@"tabbar_bg"];
     self.backgroundImage = image;
     
     
