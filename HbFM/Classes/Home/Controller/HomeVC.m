@@ -45,7 +45,7 @@
     
     [[HomeDataTool shareInstance] getHomeTabs:^(NSArray <HomeTabModel *>*tabMs) {
 //        [self setUpWithSegModels:tabMs andChildVCs:@[[HomeRecommendAPI shareInstance].recommendVC, [XMGClassificationTVC new], [XMGRadioBroadcaseTVC new], [XMGBillBoardTVC new], [XMGFMAnchorTVC new]]];
-        [self setUpWithSegModels:tabMs andChildVCs:@[[HomeRecommendAPI shareInstance].recommendVC]];
+        [self setUpWithSegModels:tabMs andChildVCs:@[[HomeRecommendAPI shareInstance].recommendVC,[ClassificationTVC new],[[UIViewController alloc] init],[[UIViewController alloc] init],[[UIViewController alloc] init]]];
 
         self.segSelectIndex = 0;
     }];

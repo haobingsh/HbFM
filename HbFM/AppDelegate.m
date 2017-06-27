@@ -24,6 +24,12 @@
 //    [MainModuleAPI addChildVC:[[DownLoadListernAPI shareInstance] getDownLoadListernVC] normalImageName:@"tabbar_download_n" selectedImageName:@"tabbar_download_h" isRequiredNavController:YES];
 //    [MainModuleAPI addChildVC:[XMGMineVC new] normalImageName:@"tabbar_me_n" selectedImageName:@"tabbar_me_h" isRequiredNavController:YES];
     
+    [MainModuleAPI addChildVC:[[UIViewController alloc] init] normalImageName:@"tabbar_sound_n" selectedImageName:@"tabbar_sound_h" isRequiredNavController:YES];
+    [MainModuleAPI addChildVC:[[UIViewController alloc] init] normalImageName:@"tabbar_download_n" selectedImageName:@"tabbar_download_h" isRequiredNavController:YES];
+    [MainModuleAPI addChildVC:[[UIViewController alloc] init] normalImageName:@"tabbar_me_n" selectedImageName:@"tabbar_me_h" isRequiredNavController:YES];
+    
+
+    
     [MainModuleAPI setTabbarMiddleBtnClick:^(BOOL isPlaying) {
         
 //        UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:0 isCache:YES];

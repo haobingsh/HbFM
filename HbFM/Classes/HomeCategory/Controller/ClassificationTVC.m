@@ -72,7 +72,7 @@
     
     NSBundle *bundle = [NSBundle bundleForClass:[ClassItemCell class]];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"XMGClassItemCell" bundle:bundle] forCellReuseIdentifier:@"ClassItemCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ClassItemCell" bundle:bundle] forCellReuseIdentifier:@"ClassItemCell"];
     
     // 设置图片轮播器
     // 封装图片轮播器
