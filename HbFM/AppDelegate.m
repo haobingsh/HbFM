@@ -41,6 +41,20 @@
     [MainModuleAPI setNavBarGlobalBackGroundImage:[UIImage imageNamed:@"navigationbar_bg_64"]];
     [MainModuleAPI setNavBarGlobalTextColor:[UIColor redColor] andFontSize:18];
     
+    // 配置首页的各种需求
+    [[HomeModuleAPI shareInstance] setJumpAlbumDetailBlock:^(NSInteger albumID, UINavigationController *currentNav) {
+        NSLog(@"跳转到专辑详情----%zd", albumID);
+//        UIViewController *v = [[SubscriptAPI shareInstance] getAlbumDetailVCWithAlbumID:albumID];
+//        [currentNav pushViewController:v animated:YES];
+    }];
+    
+    [[HomeModuleAPI shareInstance] setPresentPlayerBlock:^(NSInteger trackID) {
+//        UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:trackID isCache:NO];
+//        [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+    }];
+
+    
+    
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
 
