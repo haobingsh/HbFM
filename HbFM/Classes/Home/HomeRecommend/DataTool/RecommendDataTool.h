@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class XMGAdPicModel;
-@class XMGMenueModel;
+@class AdPicModel;
+@class MenueModel;
 #import "GroupModel.h"
 #import "NominateEditorModel.h"
 
@@ -30,7 +30,7 @@
  *
  *  @param result 广告列表
  */
-- (void)getAdList:(void(^)(NSArray <XMGAdPicModel *>*adMs, NSError *error))result;
+- (void)getAdList:(void(^)(NSArray <AdPicModel *>*adMs, NSError *error))result;
 
 
 /**
@@ -38,7 +38,7 @@
  *
  *  @param result 图文菜单列表
  */
-- (void)getPicMenueList:(void(^)(NSArray <XMGMenueModel *>*menuePicMs, NSError *error))result;
+- (void)getPicMenueList:(void(^)(NSArray <MenueModel *>*menuePicMs, NSError *error))result;
 
 /**
  *  获取发现模块的  "小编推荐"

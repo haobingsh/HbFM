@@ -107,10 +107,10 @@
     
     // 加载广告
     kWeakSelf;
-    [[RecommendDataTool shareInstance] getAdList:^(NSArray<XMGAdPicModel *> *adMs, NSError *error) {
+    [[RecommendDataTool shareInstance] getAdList:^(NSArray<AdPicModel *> *adMs, NSError *error) {
         
         for (int i = 0; i < adMs.count; i ++) {
-            XMGAdPicModel *adM = adMs[i];
+            AdPicModel *adM = adMs[i];
             __weak AdPicModel *weakAdM = adM;
             weakAdM.clickBlock = ^{
                 

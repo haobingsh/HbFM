@@ -20,7 +20,7 @@
 //#import "XMGBillBoardTVC.h"
 //#import "XMGFMAnchorTVC.h"
 
-@interface HomeVC ()<XMGSegmentBarDelegate, UIScrollViewDelegate>
+@interface HomeVC ()<SegmentBarDelegate, UIScrollViewDelegate>
 
 
 /**

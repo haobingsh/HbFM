@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainModuleAPI.h"
 #import "HomeModuleAPI.h"
+#import "PlayerAPI.h"
 
 @interface AppDelegate ()
 
@@ -49,8 +50,8 @@
     }];
     
     [[HomeModuleAPI shareInstance] setPresentPlayerBlock:^(NSInteger trackID) {
-//        UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:trackID isCache:NO];
-//        [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+        UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:trackID isCache:NO];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
     }];
 
     

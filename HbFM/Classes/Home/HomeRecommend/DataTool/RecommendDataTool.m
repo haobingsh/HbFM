@@ -60,7 +60,7 @@ singtonImplement(RecommendDataTool)
 }
 
 
-- (void)getAdList:(void(^)(NSArray <XMGAdPicModel *>*adMs, NSError *error))result {
+- (void)getAdList:(void(^)(NSArray <AdPicModel *>*adMs, NSError *error))result {
     
     NSString *url = [NSString stringWithFormat:@"%@%@", kBaseUrl, @"mobile/discovery/v4/recommends"];
     NSDictionary *param = @{

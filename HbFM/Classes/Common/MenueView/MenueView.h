@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MenueModelProtocol.h"
 
-typedef void(^XMGMenueViewLoadImageBlock)(UIButton *imageBtn, NSURL *url);
+typedef void(^MenueViewLoadImageBlock)(UIButton *imageBtn, NSURL *url);
 
 @interface MenueView : UIScrollView
 
-@property (nonatomic, copy) XMGMenueViewLoadImageBlock loadBlock;
+@property (nonatomic, copy) MenueViewLoadImageBlock loadBlock;
 
 
 @property (nonatomic, strong) NSArray <id<MenueModelProtocol>>*menueModels;

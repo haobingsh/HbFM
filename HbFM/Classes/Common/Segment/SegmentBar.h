@@ -10,7 +10,7 @@
 #import "SegmentConfig.h"
 #import "NSString+SegmentModelProtocol.h"
 
-@protocol XMGSegmentBarDelegate <NSObject>
+@protocol SegmentBarDelegate <NSObject>
 /**
  *  选项卡 从某个索引 选中某个索引
  *
@@ -39,7 +39,7 @@
 @property (nonatomic, strong) NSArray <id<SegmentModelProtocol>>*segmentMs;
 
 /** 选项卡代理 */
-@property (nonatomic, weak) id<XMGSegmentBarDelegate> delegate;
+@property (nonatomic, weak) id<SegmentBarDelegate> delegate;
 
 /** 供外界反向赋值, 赋值后, 视图会自动更新, 传递的值, 是选项卡的segID(如果没有设置, 则传递索引) */
 @property (nonatomic, assign) NSInteger selectedIndex;
