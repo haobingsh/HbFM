@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainModuleAPI.h"
+#import "HomeModuleAPI.h"
+#import "PlayerAPI.h"
 
 @interface AppDelegate ()
 
@@ -18,10 +20,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UITabBarController *rootVC = [MainModuleAPI rootTabBarCcontroller];
-//    [MainModuleAPI addChildVC:[HomeModuleAPI shareInstance].homeVC normalImageName:@"tabbar_find_n" selectedImageName:@"tabbar_find_h" isRequiredNavController:YES];
+    [MainModuleAPI addChildVC:[HomeModuleAPI shareInstance].homeVC normalImageName:@"tabbar_find_n" selectedImageName:@"tabbar_find_h" isRequiredNavController:YES];
 //    [MainModuleAPI addChildVC:[SubscriptAPI shareInstance].subscriptVC normalImageName:@"tabbar_sound_n" selectedImageName:@"tabbar_sound_h" isRequiredNavController:YES];
 //    [MainModuleAPI addChildVC:[[DownLoadListernAPI shareInstance] getDownLoadListernVC] normalImageName:@"tabbar_download_n" selectedImageName:@"tabbar_download_h" isRequiredNavController:YES];
 //    [MainModuleAPI addChildVC:[XMGMineVC new] normalImageName:@"tabbar_me_n" selectedImageName:@"tabbar_me_h" isRequiredNavController:YES];
+    
+    [MainModuleAPI addChildVC:[[UIViewController alloc] init] normalImageName:@"tabbar_sound_n" selectedImageName:@"tabbar_sound_h" isRequiredNavController:YES];
+    [MainModuleAPI addChildVC:[[UIViewController alloc] init] normalImageName:@"tabbar_download_n" selectedImageName:@"tabbar_download_h" isRequiredNavController:YES];
+    [MainModuleAPI addChildVC:[[UIViewController alloc] init] normalImageName:@"tabbar_me_n" selectedImageName:@"tabbar_me_h" isRequiredNavController:YES];
+    
+
     
     [MainModuleAPI setTabbarMiddleBtnClick:^(BOOL isPlaying) {
         
@@ -33,6 +41,20 @@
     
     [MainModuleAPI setNavBarGlobalBackGroundImage:[UIImage imageNamed:@"navigationbar_bg_64"]];
     [MainModuleAPI setNavBarGlobalTextColor:[UIColor redColor] andFontSize:18];
+    
+    // 配置首页的各种需求
+    [[HomeModuleAPI shareInstance] setJumpAlbumDetailBlock:^(NSInteger albumID, UINavigationController *currentNav) {
+        NSLog(@"跳转到专辑详情----%zd", albumID);
+//        UIViewController *v = [[SubscriptAPI shareInstance] getAlbumDetailVCWithAlbumID:albumID];
+//        [currentNav pushViewController:v animated:YES];
+    }];
+    
+    [[HomeModuleAPI shareInstance] setPresentPlayerBlock:^(NSInteger trackID) {
+        UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:trackID isCache:NO];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+    }];
+
+    
     
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];

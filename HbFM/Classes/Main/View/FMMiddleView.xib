@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zxy_icon" translatesAutoresizingMaskIntoConstraints="NO" id="hWI-rr-Xf2">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zxy_icon.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hWI-rr-Xf2">
                     <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar_np_normal" translatesAutoresizingMaskIntoConstraints="NO" id="C0F-KZ-rld">
@@ -69,8 +69,8 @@
     <resources>
         <image name="header_default" width="43" height="43"/>
         <image name="tabbar_np_normal" width="43" height="43"/>
+        <image name="tabbar_np_play.png" width="50" height="50"/>
         <image name="tabbar_np_playshadow" width="43" height="43"/>
-        <image name="zxy_icon" width="43" height="43"/>
-        <image name="tabbar_np_play" width="50" height="50"/>
+        <image name="zxy_icon.jpg" width="43" height="43"/>
     </resources>
 </document>
