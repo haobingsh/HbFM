@@ -1,10 +1,4 @@
-//
-//  XMGPlayerGroupCell.m
-//  喜马拉雅FM
-//
-//  Created by 王顺子 on 16/8/17.
-//  Copyright © 2016年 小码哥. All rights reserved.
-//
+
 
 #import "PlayerGroupCell.h"
 #import "PlayerCell.h"
@@ -13,7 +7,6 @@
 #import "PlayerDefine.h"
 
 @interface PlayerGroupCell() <UITableViewDataSource, UITableViewDelegate>
-
 {
     BOOL _isComment;
 }

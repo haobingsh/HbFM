@@ -33,9 +33,8 @@
     
     [MainModuleAPI setTabbarMiddleBtnClick:^(BOOL isPlaying) {
         
-//        UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:0 isCache:YES];
-//        [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
-        NSLog(@"点击测试");
+        UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:0 isCache:YES];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
         
     }];
     
