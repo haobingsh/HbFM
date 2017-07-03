@@ -10,6 +10,7 @@
 #import "MainModuleAPI.h"
 #import "HomeModuleAPI.h"
 #import "PlayerAPI.h"
+#import "SubscriptAPI.h"
 
 @interface AppDelegate ()
 
@@ -44,8 +45,8 @@
     // 配置首页的各种需求
     [[HomeModuleAPI shareInstance] setJumpAlbumDetailBlock:^(NSInteger albumID, UINavigationController *currentNav) {
         NSLog(@"跳转到专辑详情----%zd", albumID);
-//        UIViewController *v = [[SubscriptAPI shareInstance] getAlbumDetailVCWithAlbumID:albumID];
-//        [currentNav pushViewController:v animated:YES];
+        UIViewController *v = [[SubscriptAPI shareInstance] getAlbumDetailVCWithAlbumID:albumID];
+        [currentNav pushViewController:v animated:YES];
     }];
     
     [[HomeModuleAPI shareInstance] setPresentPlayerBlock:^(NSInteger trackID) {

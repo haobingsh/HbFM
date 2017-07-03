@@ -197,12 +197,12 @@
 
 
     // 刷新播放按钮的状态
-//    self.playOrPauseBtn.selected = [[XMGPlayerService shareInstance] isPlaying];
+//    self.playOrPauseBtn.selected = [[PlayerService shareInstance] isPlaying];
 
 
     // 刷新速率按钮显示状态
 //    float rateValue = [self.rate[self.rateIndex] floatValue];
-//    [[XMGPlayerService shareInstance] changeRate:rateValue];
+//    [[PlayerService shareInstance] changeRate:rateValue];
 
 }
 
