@@ -43,22 +43,24 @@ static NSString *const cellID = @"todayFireVoice";
 {
     _downLoadState = downLoadState;
 
-    NSBundle *_currentBundle = [NSBundle bundleForClass:[self class]];
+    //NSBundle *_currentBundle = [NSBundle bundleForClass:[self class]];
 
-    NSString *bundleName = [[_currentBundle bundleIdentifier].pathExtension stringByAppendingString:@".bundle"];
+    //NSString *bundleName = [[_currentBundle bundleIdentifier].pathExtension stringByAppendingString:@".bundle"];
 
-    NSString *normalPath = [_currentBundle pathForResource:@"cell_download@3x.png" ofType:nil inDirectory:bundleName];
+    //NSString *normalPath = [_currentBundle pathForResource:@"cell_download@3x.png" ofType:nil inDirectory:bundleName];
 
-    NSString *selectedPath = [_currentBundle pathForResource:@"cell_download_loading@3x.png" ofType:nil inDirectory:bundleName];
+    //NSString *selectedPath = [_currentBundle pathForResource:@"cell_download_loading@3x.png" ofType:nil inDirectory:bundleName];
 
-    NSString *downLoadedPath = [_currentBundle pathForResource:@"cell_downloaded@3x.png" ofType:nil inDirectory:bundleName];
+    //NSString *downLoadedPath = [_currentBundle pathForResource:@"cell_downloaded@3x.png" ofType:nil inDirectory:bundleName];
 
     if (downLoadState == CellDownLoadStateWait) {
         [self.downLoadBtn.imageView.layer removeAllAnimations];
-        [self.downLoadBtn setImage:[UIImage imageWithContentsOfFile:normalPath] forState:UIControlStateNormal];
+        //[self.downLoadBtn setImage:[UIImage imageWithContentsOfFile:normalPath] forState:UIControlStateNormal];
+        [self.downLoadBtn setImage:[UIImage imageNamed:@"cell_download"] forState:UIControlStateNormal];
 
     }else if (downLoadState == CellDownLoadStateDownLoading) {
-        [self.downLoadBtn setImage:[UIImage imageWithContentsOfFile:selectedPath] forState:UIControlStateNormal];
+        //[self.downLoadBtn setImage:[UIImage imageWithContentsOfFile:selectedPath] forState:UIControlStateNormal];
+        [self.downLoadBtn setImage:[UIImage imageNamed:@"cell_download_loading"] forState:UIControlStateNormal];
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
         animation.fromValue = @(0);
         animation.toValue = @(M_PI * 2.0);
@@ -67,7 +69,8 @@ static NSString *const cellID = @"todayFireVoice";
     } else if (downLoadState == CellDownLoadStateDownLoaded) {
 
         [self.downLoadBtn.imageView.layer removeAllAnimations];
-        [self.downLoadBtn setImage:[UIImage imageWithContentsOfFile:downLoadedPath] forState:UIControlStateNormal];
+        //[self.downLoadBtn setImage:[UIImage imageWithContentsOfFile:downLoadedPath] forState:UIControlStateNormal];
+        [self.downLoadBtn setImage:[UIImage imageNamed:@"cell_downloaded"] forState:UIControlStateNormal];
     }
     
 }
