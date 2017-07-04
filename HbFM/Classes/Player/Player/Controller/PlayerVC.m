@@ -161,6 +161,11 @@ static UINavigationController *shareNavIntance;
     kWeakSelf
     [[PlayerDataTool shareInstance] getPlayerDataWithAlbumId:self.albumId trackUid: self.trackUid result:^(TrackInfoModel *trackM, AlbumInfoModel *albumInfoM, PlayerGroupModel *associationAlbumM, UserInfoModel *userInfoM, PlayerCommentGroupModel *commentGroupM, TrackRewardInfoModel *rewardInfoM) {
         
+        if (albumInfoM == nil || trackM == nil) {
+            
+            return ;
+        }
+        
         // 清空数据
         self.cellModels = nil;
         [self.tableView reloadData];

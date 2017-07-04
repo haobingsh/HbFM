@@ -11,6 +11,7 @@
 #import "HomeModuleAPI.h"
 #import "PlayerAPI.h"
 #import "SubscriptAPI.h"
+#import "DownLoadListernAPI.h"
 
 @interface AppDelegate ()
 
@@ -22,12 +23,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UITabBarController *rootVC = [MainModuleAPI rootTabBarCcontroller];
     [MainModuleAPI addChildVC:[HomeModuleAPI shareInstance].homeVC normalImageName:@"tabbar_find_n" selectedImageName:@"tabbar_find_h" isRequiredNavController:YES];
-//    [MainModuleAPI addChildVC:[SubscriptAPI shareInstance].subscriptVC normalImageName:@"tabbar_sound_n" selectedImageName:@"tabbar_sound_h" isRequiredNavController:YES];
-//    [MainModuleAPI addChildVC:[[DownLoadListernAPI shareInstance] getDownLoadListernVC] normalImageName:@"tabbar_download_n" selectedImageName:@"tabbar_download_h" isRequiredNavController:YES];
+    [MainModuleAPI addChildVC:[SubscriptAPI shareInstance].subscriptVC normalImageName:@"tabbar_sound_n" selectedImageName:@"tabbar_sound_h" isRequiredNavController:YES];
+    [MainModuleAPI addChildVC:[[DownLoadListernAPI shareInstance] getDownLoadListernVC] normalImageName:@"tabbar_download_n" selectedImageName:@"tabbar_download_h" isRequiredNavController:YES];
 //    [MainModuleAPI addChildVC:[XMGMineVC new] normalImageName:@"tabbar_me_n" selectedImageName:@"tabbar_me_h" isRequiredNavController:YES];
     
-    [MainModuleAPI addChildVC:[[UIViewController alloc] init] normalImageName:@"tabbar_sound_n" selectedImageName:@"tabbar_sound_h" isRequiredNavController:YES];
-    [MainModuleAPI addChildVC:[[UIViewController alloc] init] normalImageName:@"tabbar_download_n" selectedImageName:@"tabbar_download_h" isRequiredNavController:YES];
     [MainModuleAPI addChildVC:[[UIViewController alloc] init] normalImageName:@"tabbar_me_n" selectedImageName:@"tabbar_me_h" isRequiredNavController:YES];
     
 
@@ -53,9 +52,32 @@
         UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:trackID isCache:NO];
         [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
     }];
+    
+    // 配置订阅的各种需求
+    [[SubscriptAPI shareInstance] setPresentPlayerBlock:^(NSInteger trackID) {
+        UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:trackID isCache:NO];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+        
+    }];
+    
+    // 配置播放器的各种需求
+    [[PlayerAPI shareInstance] setJumpAlbumDetailBlock:^(NSInteger albumID, UINavigationController *nav) {
+        UIViewController *v = [[SubscriptAPI shareInstance] getAlbumDetailVCWithAlbumID:albumID];
+        [nav pushViewController:v animated:YES];
+    }];
+    
+    // 配置下载听的各种需求
+    [[DownLoadListernAPI shareInstance] setLoadTrackBlock:^(NSInteger trackID) {
+        NSLog(@"设置播放器, 加载响应的数据信息");
+        [[PlayerAPI shareInstance] loadTrackInfo:trackID];
+    }];
+    [[DownLoadListernAPI shareInstance] setPresentPlayerBlock:^(NSInteger trackID) {
+        UINavigationController *nav = [[PlayerAPI shareInstance] getPlayerNavgationControllerWithTrackId:trackID isCache:NO];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+    }];
 
-    
-    
+
+
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
 
